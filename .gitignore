@@ -23,6 +23,10 @@ dist-ssr
 *.sin
 *.sw?
 
+# Uploaded Images and Videos
+uploads/
+uploads/*
+
 
 #ENV
 .env
