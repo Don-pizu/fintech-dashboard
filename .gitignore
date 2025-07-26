@@ -31,6 +31,11 @@ uploads/*
 #ENV
 .env
 
+.env.test
+mongodb-bin/
+mongodb-binaries/
+tests/
+
 
 
 
