@@ -7,7 +7,7 @@ const transactionSchema = new mongoose.Schema ({
 	type: {             // i changed transact to type because of test
 		type: String,
 		enum: ['credit', 'debit'],
-		required: false,
+		required: true,
 	},
 
 	amount: {

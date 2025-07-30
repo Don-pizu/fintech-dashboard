@@ -26,10 +26,22 @@ async function loadDashboard() {
   `; 
 } 
 
+
 // Logout helper 
 function logout() { 
   localStorage.removeItem('token'); 
   window.location.href = 'login.html'; 
 } 
+
+
+// Wait for DOM to be ready
+document.addEventListener('DOMContentLoaded', () => {
+  const logoutBtn = document.getElementById('logoutBtn');
+  if (logoutBtn) {
+    logoutBtn.addEventListener('click', logout);
+  }
+});
+
+
 
 loadDashboard();

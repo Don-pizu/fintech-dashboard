@@ -15,7 +15,7 @@ const errorHandler = require('./middleware/errorHandler');
 const adminRoutes = require('./routes/adminRoutes'); 
 const { swaggerUi, swaggerSpec } = require('./swagger');
 const profileRoutes = require('./routes/profileRoutes');
-
+const multer = require('multer');
 
 // Load environment variables 
 dotenv.config(); 

@@ -23,4 +23,8 @@ document.getElementById('overrideForm').addEventListener('submit', async (e) => 
 
   const data = await res.json(); 
   alert(data.message || 'Override complete'); 
+
+  if (res.status === 200) { 
+    window.location.href = 'dashboard.html'; 
+  } 
 });

@@ -14,11 +14,16 @@ exports.getDashboard = async (req, res) => {
 		const transactions = await Transaction.find({ user: userId});
 
 		//callculate balance
-		const balance = transactions.reduce((total, txn) => {
-		  return txn.transact === 'credit'
-		    ? total + txn.amount
-		    : total - txn.amount;
-		}, 0);
+		 const balance = transactions.reduce((total, txn) => {
+	      const type = txn.type?.toLowerCase();
+	      const amount = Math.abs(Number(txn.amount)) || 0;
+
+	      return type === 'credit'
+	        ? total + amount
+	        : total - amount;
+	    }, 0);
+
+
 
 
 	    //get user details

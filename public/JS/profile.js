@@ -19,4 +19,8 @@
         } else {
           alert(data.error || 'Upload failed');
         }
+
+        if (res.status === 200) { 
+          window.location.href = 'dashboard.html'; 
+        } 
     });

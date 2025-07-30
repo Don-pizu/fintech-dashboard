@@ -26,10 +26,11 @@ res.json({
 
 */
 
-/*
-//NUMBER 1
+//NUMBER 1 ===== upload image
 
 const path = require('path');
+const User = require('../models/User');
+
 
 exports.uploadSimple = async (req, res) => {
     try {
@@ -47,6 +48,13 @@ exports.uploadSimple = async (req, res) => {
         return res.status(400).json({ message: 'Invalid file type. Only images are allowed.' });
       }
 
+      // ✅ Save image path to the user
+        const user = await User.findById(req.user.id);
+        if (!user) return res.status(404).json({ message: 'User not found' });
+
+        user.profileImage = `uploads/${req.file.filename}`;
+        await user.save();
+
       // Optional: Rename file or move it if needed
 
       res.json({
@@ -57,18 +65,16 @@ exports.uploadSimple = async (req, res) => {
           path: req.file.path,
           size: req.file.size,
           mimetype: req.file.mimetype,
+          profileImage: user.profileImage,
         },
       });
   } catch (error) {
     res.status(500).json({ error: 'Failed to upload profile image'});
   }
 };
-*/
 
 
-//Number 2
-const path = require('path');
-const User = require('../models/User');
+//Number 2  ===== upload video
 
 exports.uploadVideo = (req, res) => {
     if (!req.file) {
