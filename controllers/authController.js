@@ -12,6 +12,7 @@ process.env.JWT_SECRET,
 ); 
 };
 
+
 // @desc    Register a new user 
 exports.register = async (req, res) => { 
 const { username, password, role } = req.body; 

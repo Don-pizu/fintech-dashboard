@@ -14,6 +14,7 @@ describe('Dashboard Routes', () => {
     token = jwt.sign({ id: user._id, role: user.role }, process.env.JWT_SECRET);
   });
 
+
   it('should return dashboard summary', async () => {
     const res = await request(app)
       .get('/api/dashboard')

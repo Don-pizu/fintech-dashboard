@@ -25,9 +25,6 @@ router.get('/transactions', protect, getTransactions); // To get all the transac
 router.get('/dashboard', protect, getDashboard);            // get dashboard of a user using the token
 
 
-
-   
-
 module.exports = router;
 
 

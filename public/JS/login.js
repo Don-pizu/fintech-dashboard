@@ -14,6 +14,7 @@ document.getElementById('loginForm').addEventListener('submit', async (e) => {
     body: JSON.stringify({ username, password }) 
   }); 
 
+
   const data = await res.json(); 
   if (data.token) { 
     localStorage.setItem('token', data.token); // Save JWT for reuse

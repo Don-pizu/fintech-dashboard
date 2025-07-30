@@ -8,8 +8,6 @@ const { uploadSimple, uploadVideo } = require('../controllers/profileController'
 const { protect } = require('../middleware/authMiddleware');  // To add authentication to the route 
 
 
-
-
 //upload image with a simple setup
 router.post('/upload-image', upload.single('image'), protect, uploadSimple);
 

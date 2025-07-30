@@ -7,6 +7,7 @@ const jwt = require('jsonwebtoken');
 
 process.env.JWT_SECRET = process.env.JWT_SECRET || 'myf_in_te_ch_2025s_ec+ret';
 
+
 describe('Admin Tests', () => {
   let adminUser;
   let regularUser;

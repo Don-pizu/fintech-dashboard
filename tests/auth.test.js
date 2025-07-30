@@ -9,6 +9,7 @@ describe('Auth Routes', () => {
     await User.deleteMany({ username: 'testuser' });
     await User.create({ username: 'testuser', password: '123456' });
   });
+  
 
   it('should login a user', async () => {
     const res = await request(app)

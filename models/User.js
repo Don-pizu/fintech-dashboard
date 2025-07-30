@@ -29,6 +29,7 @@ profileImage: {
 }
 });
 
+
 // Password Hashing Before Save 
 userSchema.pre('save', async function (next) { 
 if (!this.isModified('password')) return next(); // If password hasn't changed 

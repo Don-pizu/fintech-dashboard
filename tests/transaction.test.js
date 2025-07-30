@@ -26,6 +26,7 @@ describe('Transaction Routes', () => {
 	expect(res.body.transaction.amount).toBe(200);
 	});
 
+
 	it('should not allow debit more than balance', async () => {
 		const res = await request(app)
 		.post('/api/transactions')

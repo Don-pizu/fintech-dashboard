@@ -55,6 +55,7 @@ exports.uploadSimple = async (req, res) => {
         user.profileImage = `uploads/${req.file.filename}`;
         await user.save();
 
+
       // Optional: Rename file or move it if needed
 
       res.json({

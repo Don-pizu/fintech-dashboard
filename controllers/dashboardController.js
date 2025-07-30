@@ -22,9 +22,7 @@ exports.getDashboard = async (req, res) => {
 	        ? total + amount
 	        : total - amount;
 	    }, 0);
-
-
-
+		 
 
 	    //get user details
 		 const user = await User.findById(userId).select('username role');

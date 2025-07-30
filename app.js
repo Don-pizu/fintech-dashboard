@@ -64,6 +64,7 @@ app.use((req, res, next) => {
 // CORS configuration
 const allowedOrigins = ['http://localhost:5000']; // frontend url
 
+
 app.use(cors({
   origin: function (origin, callback) {
     if (!origin || allowedOrigins.includes(origin)) {

@@ -14,6 +14,7 @@ document.getElementById('signupForm').addEventListener('submit', async (e) => {
     body: JSON.stringify({ username, password }) 
   }); 
   
+  
   const data = await res.json(); 
   alert(data.message || 'Registered successfully');
 
