@@ -80,6 +80,7 @@ app.use(express.static('public'));
 app.use('/uploads', express.static('uploads'));  //serve static uploads
  
 
+
 //app route
 app.use('/api/auth', authRoutes);
 app.use('/api/test', testRoute);
