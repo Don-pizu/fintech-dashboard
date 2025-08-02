@@ -15,6 +15,7 @@ const errorHandler = require('./middleware/errorHandler');
 const adminRoutes = require('./routes/adminRoutes'); 
 const { swaggerUi, swaggerSpec } = require('./swagger');
 const profileRoutes = require('./routes/profileRoutes');
+const healthRoutes = require('./routes/healthRoutes');
 const multer = require('multer');
 
 // Load environment variables 
@@ -89,6 +90,7 @@ app.use('/api/dashboard', dashboardRoutes);    //use /dashboard/
 app.use('/api/transactions', transactionRoutes);
 app.use('/api/admin', adminRoutes);
 app.use('/api/profile', profileRoutes);
+app.use('/api/health', healthRoutes);
 
 // Swagger docs route
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
