@@ -3,6 +3,10 @@
 const mongoose = require('mongoose'); 
 const connectDB = async () => { 
 
+if (process.env.NODE_ENV === 'test') {
+    console.log('Skipping DB connection in test mode');
+    return;
+  }
 	
 try { 
 	const conn = await mongoose.connect(process.env.MONGO_URI); 
@@ -10,7 +14,7 @@ try {
 } catch (err) { 
 	console.error(`Error: ${err.message}`); 
 	process.exit(1); // Stop process if DB fails 
-}                                       //Commenting this not to working because of jest (test)
+}                                     //Commenting this out so jest (test) can work
 }; 
 module.exports = connectDB;
 
