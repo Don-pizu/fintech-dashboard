@@ -10,4 +10,5 @@ router.get('/admin-only', protect, authorizeRoles('admin'), (req, res) => {
   res.json({ message: 'Welcome Admin!' });
 });
 
+
 module.exports = router; 
