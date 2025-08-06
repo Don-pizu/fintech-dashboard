@@ -61,7 +61,7 @@ app.use((req, res, next) => {
 
   next();
 });
-
+/*
 // CORS configuration
 const allowedOrigins = [
   'http://localhost:5000',    // frontend url
@@ -79,6 +79,9 @@ app.use(cors({
   },
   credentials: true
 }));
+*/
+
+app.use(cors());
 
 // public static
 app.use(express.static('public'));
