@@ -1,7 +1,7 @@
 // Set the backend API URL 
 // const API = 'http://localhost:5000/api'; // for testing
 
-const API = 'https://fintech-dashboard-2ifo.onrender.com';    //For production after deployment
+const API = 'https://fintech-dashboard-2ifo.onrender.com/api';    //For production after deployment
 
 // Handle form submission
 document.getElementById('loginForm').addEventListener('submit', async (e) => { 
