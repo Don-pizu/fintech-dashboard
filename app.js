@@ -68,7 +68,7 @@ const allowedOrigins = [
   'https://fintech-dashboard-2ifo.onrender.com',// your deployed frontend
   null
   ]; 
-
+/*
 app.use(cors({
   origin: function (origin, callback) {
     if (!origin || allowedOrigins.includes(origin)) {
@@ -77,16 +77,15 @@ app.use(cors({
       callback(new Error('Not allowed by CORS'));
     }
   },
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization'],
-  credentials: true,
+  credentials: true
 }));
+*/
+  app.use(cors());
 
-/*
 // public static
 app.use(express.static('public'));
 app.use('/uploads', express.static('uploads'));  //serve static uploads
-*/
+ 
 
 
 //app route
