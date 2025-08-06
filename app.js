@@ -82,10 +82,11 @@ app.use(cors({
   credentials: true,
 }));
 
+/*
 // public static
 app.use(express.static('public'));
 app.use('/uploads', express.static('uploads'));  //serve static uploads
- 
+*/
 
 
 //app route
