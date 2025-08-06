@@ -63,7 +63,11 @@ app.use((req, res, next) => {
 });
 
 // CORS configuration
-const allowedOrigins = ['http://localhost:5000', null]; // frontend url
+const allowedOrigins = [
+  'http://localhost:5000',    // frontend url
+  'https://fintech-dashboard-2ifo.onrender.com',// your deployed frontend
+  null
+  ]; 
 
 app.use(cors({
   origin: function (origin, callback) {
