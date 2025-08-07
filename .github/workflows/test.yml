@@ -1,15 +1,15 @@
 # .github/workflows/test.yml
 
-name: Run Tests on Push
+name: Test and Deploy to Render
 
 on:
   push:
-    branches: [main]
+    branches: [ main ]
   pull_request:
-    branches: [main]
+    branches: [ main ]
 
 jobs:
-  test:
+  test-and-deploy:
     runs-on: ubuntu-latest
 
     services:
@@ -19,7 +19,7 @@ jobs:
           - 27017:27017
 
     steps:
-      - name: Checkout Repository
+      - name: Checkout code
         uses: actions/checkout@v3
 
       - name: Set up Node.js
@@ -27,8 +27,17 @@ jobs:
         with:
           node-version: 18
 
-      - name: Install Dependencies
+      - name: Install dependencies
         run: npm install
 
-      - name: Run Tests
+      - name: Run tests
         run: npm test
+
+      - name: Install Render CLI
+        run: npm install -g render-cli
+
+      - name: Deploy to Render (only if tests pass)
+        if: success()
+        env:
+          RENDER_API_KEY: ${{ secrets.RENDER_API_KEY }}
+        run: render deploy service srv-d25p48ali9vc73fje3ag
