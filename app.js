@@ -63,7 +63,7 @@ app.use((req, res, next) => {
 });
 
 app.use(cors({
-  origin: ["https://your-vercel-url.vercel.app"], // ✅ Replace with actual Vercel URL
+  origin: ["http://fintech-dashboard-flax.vercel.app/"], 
   credentials: true,
 }));
 
