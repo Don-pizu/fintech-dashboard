@@ -62,13 +62,19 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use(cors({
-  origin: [
-    'http://localhost:5000',
-    'http://fintech-dashboard-flax.vercel.app'
-  ],
-  credentials: true,
-}));
+// Allow only your frontend domain
+const allowedOrigins = [
+  'http://localhost:5000',
+  'https://fintech-dashboard-flax.vercel.app' // frontend
+];
+
+app.use(
+  cors({
+    origin: allowedOrigins,
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    credentials: true,
+  })
+);
 
 // public static
 app.use(express.static('public'));
