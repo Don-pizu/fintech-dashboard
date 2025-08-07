@@ -1,7 +1,7 @@
 // Set the backend API URL
 // const API = 'http://localhost:5000/api'; // Uncomment this for local testing
 
-const API = import.meta.env.VITE_BACKEND_API_URL || 'https://fintech-dashboard-2ifo.onrender.com/api'; // Production backend
+const API = 'https://fintech-dashboard-2ifo.onrender.com/api'; // Production backend
 
 // Handle form submission for signup
 document.getElementById('signupForm').addEventListener('submit', async (e) => {

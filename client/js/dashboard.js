@@ -2,7 +2,7 @@
 // const API = 'http://localhost:5000/api'; // for testing
 
 
-const API = import.meta.env.VITE_BACKEND_API_URL ||'https://fintech-dashboard-2ifo.onrender.com/api'; // For production
+const API = 'https://fintech-dashboard-2ifo.onrender.com/api'; // For production
 
 
 // Get token from localStorage 
@@ -28,7 +28,7 @@ async function loadDashboard() {
       ? `<img src="http://localhost:5000/${data.profileImage}" width="150" />`
       : '<p>No profile image uploaded</p>';
 */
-  
+
  // Dynamically build image URL
 // Remove trailing /api if present in API URL
 const baseUrl = API.replace(/\/api$/, '');
