@@ -5,7 +5,7 @@ const API = import.meta.env.VITE_BACKEND_API_URL ||'https://fintech-dashboard-2i
 document.getElementById("loginForm").addEventListener("submit", async function(e) {
 	e.preventDefault();
 
-	const email = document.getElementById("email").value;
+	const email = document.getElementById("username").value;
 	const password = document.getElementById("password").value;
 
 	try {
@@ -31,5 +31,5 @@ document.getElementById("loginForm").addEventListener("submit", async function(e
 		alert("An error occurred during login.");
 	}
 
-	
+
 });

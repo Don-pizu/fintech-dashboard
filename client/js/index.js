@@ -6,7 +6,7 @@ const API = import.meta.env.VITE_BACKEND_API_URL ||'https://fintech-dashboard-2i
 // Handle form submission 
 document.getElementById('signupForm').addEventListener('submit', async (e) => {
   e.preventDefault(); // prevent page reload 
-  const username = document.getElementById('email').value; 
+  const username = document.getElementById('username').value; 
   const password = document.getElementById('password').value; 
 
   // Make POST request to register endpoint 
