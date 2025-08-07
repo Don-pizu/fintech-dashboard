@@ -62,25 +62,10 @@ app.use((req, res, next) => {
   next();
 });
 
-// CORS configuration
-const allowedOrigins = [
-  'http://localhost:5000',    // frontend url
-  'https://fintech-dashboard-2ifo.onrender.com',// your deployed frontend
-  null
-  ]; 
-/*
 app.use(cors({
-  origin: function (origin, callback) {
-    if (!origin || allowedOrigins.includes(origin)) {
-      callback(null, true); 
-    } else {
-      callback(new Error('Not allowed by CORS'));
-    }
-  },
-  credentials: true
+  origin: ["https://your-vercel-url.vercel.app"], // ✅ Replace with actual Vercel URL
+  credentials: true,
 }));
-*/
-  app.use(cors());
 
 // public static
 app.use(express.static('public'));
@@ -146,4 +131,24 @@ app.use(express.static('public'));
 
 
 
+*/
+
+/*
+// CORS configuration
+const allowedOrigins = [
+  'http://localhost:5000',    // frontend url
+  'https://fintech-dashboard-2ifo.onrender.com',// your deployed frontend
+  null
+  ]; 
+
+app.use(cors({
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true); 
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  credentials: true
+}));
 */
