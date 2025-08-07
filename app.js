@@ -63,7 +63,10 @@ app.use((req, res, next) => {
 });
 
 app.use(cors({
-  origin: ["http://fintech-dashboard-flax.vercel.app/"], 
+  origin: [
+    'http://localhost:5000',
+    'http://fintech-dashboard-flax.vercel.app'
+  ],
   credentials: true,
 }));
 

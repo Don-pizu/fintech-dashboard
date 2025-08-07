@@ -1,11 +1,11 @@
 // Set the backend API URL 
 // const API = 'http://localhost:5000/api'; // for testing
-const API = import.meta.env.VITE_BACKEND_API_URL ||'https://fintech-dashboard-2ifo.onrender.com/api'; // For production
+const API = import.meta.env.VITE_BACKEND_API_URL || 'https://fintech-dashboard-2ifo.onrender.com/api'; // For production
 
 document.getElementById("loginForm").addEventListener("submit", async function(e) {
 	e.preventDefault();
 
-	const email = document.getElementById("username").value;
+	const username = document.getElementById("username").value; // ✅ rename to match backend
 	const password = document.getElementById("password").value;
 
 	try {
@@ -14,7 +14,7 @@ document.getElementById("loginForm").addEventListener("submit", async function(e
 			headers: {
 				"Content-Type": "application/json"  
 			},
-			body: JSON.stringify({ email, password }),
+			body: JSON.stringify({ username, password }), // ✅ matches backend expectations
 		});
 
 		const data = await response.json();
@@ -30,6 +30,4 @@ document.getElementById("loginForm").addEventListener("submit", async function(e
 		console.error("Login error:", err);
 		alert("An error occurred during login.");
 	}
-
-
 });

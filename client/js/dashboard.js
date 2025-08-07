@@ -2,7 +2,8 @@
 // const API = 'http://localhost:5000/api'; // for testing
 
 
-const API = 'https://fintech-dashboard-2ifo.onrender.com/api';    //For production after deployment
+const API = import.meta.env.VITE_BACKEND_API_URL ||'https://fintech-dashboard-2ifo.onrender.com/api'; // For production
+
 
 // Get token from localStorage 
 const token = localStorage.getItem('token'); 
@@ -13,13 +14,32 @@ async function loadDashboard() {
     headers: { Authorization: `Bearer ${token}` } 
   }); 
   
+   if (!res.ok) {
+    alert('Failed to load dashboard data. Please log in again.');
+    logout();
+    return;
+  }
 
   const data = await res.json();
 
-   // Handle image display
+/*
+  // Handle image display  ------ this will work for localhost
     const imageTag = data.profileImage
       ? `<img src="http://localhost:5000/${data.profileImage}" width="150" />`
       : '<p>No profile image uploaded</p>';
+*/
+  
+ // Dynamically build image URL
+// Remove trailing /api if present in API URL
+const baseUrl = API.replace(/\/api$/, '');
+
+// Handle image display
+const imageTag = data.profileImage
+  ? `<img src="${baseUrl}/${data.profileImage}" width="150" />`
+  : '<p>No profile image uploaded</p>';
+
+
+
 
   document.getElementById('dashboard').innerHTML = ` 
     ${imageTag}
