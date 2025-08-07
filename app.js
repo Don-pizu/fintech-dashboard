@@ -64,7 +64,6 @@ app.use((req, res, next) => {
 
 // Allow only your frontend domain
 const allowedOrigins = [
-  'http://localhost:5000',
   'https://fintech-dashboard-flax.vercel.app' // frontend
 ];
 
