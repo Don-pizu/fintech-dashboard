@@ -16,13 +16,17 @@ process.env.JWT_SECRET,
 // @desc    Register a new user 
 exports.register = async (req, res) => { 
 const { username, password, role } = req.body; 
+
 if (!username || !password) 
 return res.status(400).json({ message: 'Username and password required' 
 }); 
-const userExists = await User.findOne({ username }); 
-if (userExists) 
-return res.status(400).json({ message: 'Username already taken' }); 
-const user = await User.create({ username, password,  role: role === 'admin' ? 'admin' : 'user' });
+const userExists = await User.findOne({ username: username });
+if (userExists) {
+	return res.status(400).json({ message: 'Username already taken' }); 
+
+}
+
+const user = await User.create({ username: username, password,  role: role === 'admin' ? 'admin' : 'user' });
 res.status(201).json({ 
 _id: user._id, 
 username: user.username, 
@@ -33,8 +37,9 @@ token: createToken(user)
 
 // @desc    Login user 
 exports.login = async (req, res) => { 
-const { username, password } = req.body; 
-const user = await User.findOne({ username }); 
+const { username, password } = req.body;
+
+const user = await User.findOne({ username: username }); 
 if (!user || !(await user.matchPassword(password))) 
 return res.status(401).json({ message: 'Invalid credentials' }); 
 res.json({ 

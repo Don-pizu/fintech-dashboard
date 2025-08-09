@@ -27,8 +27,6 @@ dist-ssr
 *.sw?
 
 # Uploaded Images and Videos
-uploads/
-uploads/*
 
 
 #ENV

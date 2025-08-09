@@ -5,8 +5,9 @@ const API = 'https://fintech-dashboard-2ifo.onrender.com/api'; // For production
 document.getElementById("loginForm").addEventListener("submit", async function(e) {
 	e.preventDefault();
 
-	const username = document.getElementById("username").value; // ✅ rename to match backend
+	const userName = document.getElementById("username").value; // ✅ rename to match backend
 	const password = document.getElementById("password").value;
+	const username = userName.toLowerCase();
 
 	try {
 		const response = await fetch(`${API}/auth/login`, {

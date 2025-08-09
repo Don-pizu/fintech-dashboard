@@ -7,9 +7,9 @@ const API = 'https://fintech-dashboard-2ifo.onrender.com/api'; // Production bac
 document.getElementById('signupForm').addEventListener('submit', async (e) => {
   e.preventDefault(); // Prevent default form behavior
 
-  const username = document.getElementById('username').value; // 💡 Ensure input has id="username"
+  const userName = document.getElementById('username').value; // 💡 Ensure input has id="username"
   const password = document.getElementById('password').value; // 💡 Ensure input has id="password"
-
+  const username = userName.toLowerCase();
   try {
     const res = await fetch(`${API}/auth/register`, {
       method: 'POST',
