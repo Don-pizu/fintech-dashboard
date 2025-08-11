@@ -29,10 +29,7 @@ connectDB();
 app.use(express.json()); 
 
 // Security Headers 
-app.use(helmet({
-  crossOriginResourcePolicy: { policy: "cross-origin" }
-}));
-
+app.use(helmet());
 
 // Limit repeated requests 
 const limiter = rateLimit({ 
