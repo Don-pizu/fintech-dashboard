@@ -4,7 +4,6 @@
 
 const API = 'https://fintech-dashboard-2ifo.onrender.com/api'; // For production
 
-
 // Get token from localStorage 
 const token = localStorage.getItem('token'); 
 
