@@ -29,7 +29,9 @@ connectDB();
 app.use(express.json()); 
 
 // Security Headers 
-app.use(helmet());
+app.use(helmet({
+  crossOriginResourcePolicy: { policy: "cross-origin" }
+}));
 
 // Limit repeated requests 
 const limiter = rateLimit({ 
@@ -56,17 +58,23 @@ app.use((req, res, next) => {
       }
     }
   }
-
   // ⚠️ Skip req.query to avoid "only a getter" error
-
   next();
 });
 
 app.use(cors());
 
 // public static
-app.use(express.static('public'));
-app.use('/uploads', express.static('uploads'));  //serve static uploads
+app.use(express.static('client'));
+
+app.use('/uploads', express.static('uploads', {
+  setHeaders: (res) => {
+    res.setHeader('Access-Control-Allow-Origin', 'https://fintech-dashboard-flax.vercel.app');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, OPTIONS');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+    res.setHeader('Cross-Origin-Resource-Policy', 'cross-origin'); // important for Chrome
+  }
+}));
  
 
 

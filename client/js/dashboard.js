@@ -22,23 +22,11 @@ async function loadDashboard() {
 
   const data = await res.json();
 
-/*
+
   // Handle image display  ------ this will work for localhost
     const imageTag = data.profileImage
-      ? `<img src="http://localhost:5000/${data.profileImage}" width="150" />`
+      ? `<img src="https://fintech-dashboard-2ifo.onrender.com/${data.profileImage}" width="150" />`
       : '<p>No profile image uploaded</p>';
-*/
-
- // Dynamically build image URL
-// Remove trailing /api if present in API URL
-const baseUrl = API.replace(/\/api$/, '');
-
-// Handle image display
-const imageTag = data.profileImage
-  ? `<img src="${baseUrl}/${data.profileImage}" width="150" />`
-  : '<p>No profile image uploaded</p>';
-
-
 
 
   document.getElementById('dashboard').innerHTML = ` 
