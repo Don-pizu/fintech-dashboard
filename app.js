@@ -56,23 +56,33 @@ app.use((req, res, next) => {
       }
     }
   }
+
   // ⚠️ Skip req.query to avoid "only a getter" error
+
   next();
 });
 
-app.use(cors());
+// CORS configuration
+const allowedOrigins = [
+  'http://localhost:5000',    // frontend url
+  'https://fintech-dashboard-flax.vercel.app',// your deployed frontend
+  null
+  ]; 
+
+app.use(cors({
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true); 
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  credentials: true
+}));
 
 // public static
 app.use(express.static('client'));
-
-app.use('/uploads', express.static('uploads', {
-  setHeaders: (res) => {
-    res.setHeader('Access-Control-Allow-Origin', 'https://fintech-dashboard-flax.vercel.app');
-    res.setHeader('Access-Control-Allow-Methods', 'GET, OPTIONS');
-    res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
-    res.setHeader('Cross-Origin-Resource-Policy', 'cross-origin'); // important for Chrome
-  }
-}));
+app.use('/uploads', express.static('uploads'));  //serve static uploads
  
 
 
