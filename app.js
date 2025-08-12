@@ -85,8 +85,6 @@ app.use(cors({
   allowedHeaders: ['Content-Type', 'Authorization']
 }));
 
-// Handle preflight manually for safety
-app.options('*', cors());
 
 // public static
 app.use(express.static('client'));
