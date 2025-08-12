@@ -70,7 +70,6 @@ app.use((req, res, next) => {
 const allowedOrigins = [
   'http://localhost:5000',    // frontend url
   'https://fintech-dashboard-flax.vercel.app',// your deployed frontend
-  null
   ]; 
 
 app.use(cors({
@@ -88,7 +87,6 @@ app.use(cors({
 
 // Handle preflight manually for safety
 app.options('*', cors());
-
 
 // public static
 app.use(express.static('client'));
